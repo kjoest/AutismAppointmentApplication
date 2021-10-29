@@ -256,6 +256,14 @@
       <Project>{B846B800-4092-4A2D-82AD-10174D168013}</Project>
       <Name>AutismAppointmentApp.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AutismAppointmentApp.Models\AutismAppointmentApp.Models.csproj">
+      <Project>{735666d2-5065-4f93-bf12-c1a2b83540e0}</Project>
+      <Name>AutismAppointmentApp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutismAppointmentApp.Services\AutismAppointmentApp.Services.csproj">
+      <Project>{da87f975-6881-4028-9c90-868170376066}</Project>
+      <Name>AutismAppointmentApp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
