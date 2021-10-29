@@ -64,5 +64,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutismAppointmentApp.Models\AutismAppointmentApp.Models.csproj">
+      <Project>{735666d2-5065-4f93-bf12-c1a2b83540e0}</Project>
+      <Name>AutismAppointmentApp.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
