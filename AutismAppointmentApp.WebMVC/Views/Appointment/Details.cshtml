@@ -1,0 +1,74 @@
+﻿@model AutismAppointmentApp.Models.AppointmentModels.AppointmentDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AppointmentDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfAppointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfAppointment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailOfAppointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailOfAppointment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TherapistId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TherapistId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

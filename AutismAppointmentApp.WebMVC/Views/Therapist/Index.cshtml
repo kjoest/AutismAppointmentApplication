@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AutismAppointmentApp.Models.TherapistModels.TherapistListDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TherapistId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TherapySpecialist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCertified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TherapistId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TherapySpecialist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCertified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
+            </td>
+        </tr>
+    }
+
+</table>

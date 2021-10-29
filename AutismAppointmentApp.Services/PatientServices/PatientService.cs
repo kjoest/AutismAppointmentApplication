@@ -18,7 +18,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             _userId = userId;
         }
 
-        public bool CreateStudent(PatientCreate model)
+        public bool CreatePatient(PatientCreate model)
         {
             var entity =
                 new Patient()
@@ -40,7 +40,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public IEnumerable<PatientListDetail> GetAllStudents()
+        public IEnumerable<PatientListDetail> GetAllPatients()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,7 +67,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public PatientDetail GetStudentById(int id)
+        public PatientDetail GetPatientById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -90,7 +90,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public bool UpdateStudent(PatientEdit model)
+        public bool UpdatePatient(PatientEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -110,7 +110,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public bool DeleteStudent(int id)
+        public bool DeletePatient(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
