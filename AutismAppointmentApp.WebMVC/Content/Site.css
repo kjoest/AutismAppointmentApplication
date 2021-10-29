@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 
@@ -21,4 +21,37 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/* Styling for the main home page */
+
+.jumbotron{
+    padding: 15px;
+    margin-top: 100px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+.about-section{
+    margin-left: 10em;
+    margin-top: 20px;
+}
+
+.open-hours-section{
+    margin-left: 15em;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.autism-button{
+    margin: 60px;
+}
+
+.appointment-button{
+    margin: 60px;
+}
+
+#autism-text{
+    font-family: Arial;
+    font-size: 60px;
 }
