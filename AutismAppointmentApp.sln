@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutismAppointmentApp.WebMVC", "AutismAppointmentApp.WebMVC\AutismAppointmentApp.WebMVC.csproj", "{B13BB414-FE22-4F73-A7ED-D20471A6950F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutismAppointmentApp.Contracts", "AutismAppointmentApp.Contracts\AutismAppointmentApp.Contracts.csproj", "{DCDB4ED0-D2F4-4989-81B5-E6A7638490F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutismAppointmentApp.Data", "AutismAppointmentApp.Data\AutismAppointmentApp.Data.csproj", "{B846B800-4092-4A2D-82AD-10174D168013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutismAppointmentApp.Models", "AutismAppointmentApp.Models\AutismAppointmentApp.Models.csproj", "{735666D2-5065-4F93-BF12-C1A2B83540E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutismAppointmentApp.Services", "AutismAppointmentApp.Services\AutismAppointmentApp.Services.csproj", "{DA87F975-6881-4028-9C90-868170376066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutismAppointmentApp.Tests", "AutismAppointmentApp.Tests\AutismAppointmentApp.Tests.csproj", "{DFBBB0D9-8150-4B65-91BA-7AC3429E1A50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B13BB414-FE22-4F73-A7ED-D20471A6950F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13BB414-FE22-4F73-A7ED-D20471A6950F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13BB414-FE22-4F73-A7ED-D20471A6950F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13BB414-FE22-4F73-A7ED-D20471A6950F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDB4ED0-D2F4-4989-81B5-E6A7638490F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDB4ED0-D2F4-4989-81B5-E6A7638490F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDB4ED0-D2F4-4989-81B5-E6A7638490F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDB4ED0-D2F4-4989-81B5-E6A7638490F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B846B800-4092-4A2D-82AD-10174D168013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B846B800-4092-4A2D-82AD-10174D168013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B846B800-4092-4A2D-82AD-10174D168013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B846B800-4092-4A2D-82AD-10174D168013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735666D2-5065-4F93-BF12-C1A2B83540E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735666D2-5065-4F93-BF12-C1A2B83540E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735666D2-5065-4F93-BF12-C1A2B83540E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735666D2-5065-4F93-BF12-C1A2B83540E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA87F975-6881-4028-9C90-868170376066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA87F975-6881-4028-9C90-868170376066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA87F975-6881-4028-9C90-868170376066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA87F975-6881-4028-9C90-868170376066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFBBB0D9-8150-4B65-91BA-7AC3429E1A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFBBB0D9-8150-4B65-91BA-7AC3429E1A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFBBB0D9-8150-4B65-91BA-7AC3429E1A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFBBB0D9-8150-4B65-91BA-7AC3429E1A50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C91622A-0AD6-4796-BCB2-7F8CD270D746}
+	EndGlobalSection
+EndGlobal
