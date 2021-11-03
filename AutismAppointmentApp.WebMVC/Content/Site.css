@@ -27,23 +27,23 @@ textarea {
 /* Styling for the main home page */
 
 .jumbotron {
-    padding: 15px;
-    margin-top: 100px;
-    margin-right: 0px;
-    text-align: center;
+    padding-right: 50px;
+    margin-top: 50px;
+    
 }
 
 .about-section {
-    margin-left: 10em;
+    margin-left: 0em;
     margin-top: 20px;
 }
 
 .autism-button {
-    margin: 60px;
+    margin: 30px;
+    margin-left: 0px;
 }
 
 .appointment-button {
-    margin: 60px;
+    margin: 20px;
 }
 
 #autism-text {
@@ -57,9 +57,16 @@ ul {
     list-style-type: none;
 }
 
+.calendar{
+    display: inline-block;
+    width: 20%;
+    margin-right: 50px;
+    float: right;
+}
+
 /*Month header*/
 .month {
-    padding: 70px 25px;
+    padding: 50px 10px;
     width: 100%;
     background: #2fa4e7;
     text-align: center;
@@ -81,8 +88,9 @@ ul {
     /* Previous button inside month header */
     .month .prev {
         float: left;
-        padding-top: 10px;
+        padding-top: 13px;
         cursor: pointer;
+        margin-right: 5px;
     }
 
     /*Next button */
@@ -90,6 +98,7 @@ ul {
         float: right;
         padding-top: 10px;
         cursor: pointer;
+        margin-left: 5px;
     }
 
 /*Weekdays (Mon-Sun) */
@@ -101,12 +110,12 @@ ul {
 
     .weekdays li {
         display: inline-block;
-        width: 13.6%;
-        color: #666;
+        width: 11%;
         text-align: center;
+        padding-left: 5px;
     }
 
-/*Days (1-30)*/
+/*Days (1-31)*/
 .days {
     padding: 10px 0;
     background: #eee;
@@ -116,7 +125,7 @@ ul {
     .days li {
         list-style-type: none;
         display: inline-block;
-        width: 13.6%;
+        width: 11%;
         text-align: center;
         margin-bottom: 5px;
         font-size: 12px;
@@ -134,8 +143,4 @@ ul {
     background-color: #a9d6e5;
     border: 2px solid #61a5c2;
     cursor: pointer;
-}
-
-days ul {
-    transition: background-color 0.2s;
 }
