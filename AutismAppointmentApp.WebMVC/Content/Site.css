@@ -144,3 +144,30 @@ ul {
     border: 2px solid #61a5c2;
     cursor: pointer;
 }
+
+/*Patient Styling*/
+
+.patient-text{
+    margin-top: 20px;
+}
+
+.patient-create-button{
+    margin: 10px;
+}
+
+.patient-delete{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.patient-information{
+    margin-top: 20px;
+}
+
+.edit-patient-info{
+    margin-top: 20px;
+}
+
+.save-patient-button{
+    margin: 10px;
+}
