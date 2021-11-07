@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 0px;
+    padding-right: 0px;
     padding-bottom: 20px;
+    margin-right: 0px;
     font-family: Verdana, sans-serif;
 }
 
@@ -29,7 +31,6 @@ textarea {
 .jumbotron {
     padding-right: 50px;
     margin-top: 50px;
-    
 }
 
 .about-section {
@@ -53,121 +54,99 @@ textarea {
 
 /*Calendar Styling*/
 
-ul {
-    list-style-type: none;
-}
-
-.calendar{
+.calendar {
     display: inline-block;
-    width: 20%;
     margin-right: 50px;
     float: right;
+    border: 1px solid black;
 }
 
 /*Month header*/
 .month {
-    padding: 50px 10px;
-    width: 100%;
+    padding-top: 30px;
     background: #2fa4e7;
     text-align: center;
+    padding-bottom: 30px;
 }
 
-    /* Month list */
-    .month ul {
-        margin: 0;
-        padding: 0;
-    }
+/* Previous button inside month header */
+.month .prev {
+    float: left;
+    padding-top: 2em;
+    padding-left: 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 20px;
+}
 
-        .month ul li {
-            color: white;
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-    /* Previous button inside month header */
-    .month .prev {
-        float: left;
-        padding-top: 13px;
-        cursor: pointer;
-        margin-right: 5px;
-    }
-
-    /*Next button */
-    .month .next {
-        float: right;
-        padding-top: 10px;
-        cursor: pointer;
-        margin-left: 5px;
-    }
+/*Next button */
+.month .next {
+    float: right;
+    padding-right: 10px;
+    padding-top: 2em;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 20px;
+}
 
 /*Weekdays (Mon-Sun) */
 .weekdays {
-    margin: 0;
-    padding: 10px 0;
     background-color: #ddd;
 }
 
-    .weekdays li {
-        display: inline-block;
-        width: 11%;
-        text-align: center;
-        padding-left: 5px;
-    }
-
 /*Days (1-31)*/
 .days {
-    padding: 10px 0;
     background: #eee;
-    margin: 0;
+    text-align: center;
 }
 
-    .days li {
-        list-style-type: none;
-        display: inline-block;
-        width: 11%;
+    .days td:hover:not(#today) {
+        background-color: #a9d6e5;
+        border: 2px solid #61a5c2;
+        cursor: pointer;
         text-align: center;
-        margin-bottom: 5px;
-        font-size: 12px;
-        color: #777;
     }
 
-/* Highlight the "current" day */
-.active {
-    padding: 5px;
-    background: #2fa4e7;
-    color: white !important;
+.head-day {
+    font-size: 40px;
+    line-height: 1;
+    color: #fff;
 }
 
-.days li:hover:not(.active) {
-    background-color: #a9d6e5;
-    border: 2px solid #61a5c2;
-    cursor: pointer;
+.head-month{
+    color: #fff;
+}
+
+#today {
+    text-align: center;
+    background-color: #2fa4e7;
+    color: #fff !important;
+    font-family: serif;
 }
 
 /*Patient Styling*/
 
-.patient-text{
+.patient-text {
     margin-top: 20px;
 }
 
-.patient-create-button{
+.patient-create-button {
     margin: 10px;
 }
 
-.patient-delete{
+.patient-delete {
     margin-top: 20px;
     margin-bottom: 40px;
 }
 
-.patient-information{
+.patient-information {
     margin-top: 20px;
 }
 
-.edit-patient-info{
+.edit-patient-info {
     margin-top: 20px;
 }
 
-.save-patient-button{
+.save-patient-button {
     margin: 10px;
 }

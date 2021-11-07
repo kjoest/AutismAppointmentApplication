@@ -2,63 +2,84 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container">
-    <div class="calendar">
-        <div class="col-md-3 month">
-            <ul>
-                <li class="prev">&#10094;</li>
-                <li class="next">&#10095;</li>
-                <li>November<br /><span style="font-size: 15px">2021</span></li>
-            </ul>
+<div class="calendar">
+    <div id="header" class="clearfix month">
+        <div class="prev">&#10094;</div>
+        <div class="next">&#10095;</div>
+        <div class="head-info">
+            <div class="head-day"></div>
+            <div class="head-month"></div>
         </div>
-
-        <ul class="weekdays">
-            <li>Mo</li>
-            <li>Tu</li>
-            <li>We</li>
-            <li>Th</li>
-            <li>Fr</li>
-            <li>Sa</li>
-            <li>Su</li>
-        </ul>
-
-        <ul class="days">
-            <li>1</li>
-            <li class="active">2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <br />
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <br />
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
-            <br />
-            <li>22</li>
-            <li>23</li>
-            <li>24</li>
-            <li>25</li>
-            <li>26</li>
-            <li>27</li>
-            <li>28</li>
-            <br />
-            <li>29</li>
-            <li>30</li>
-        </ul>
     </div>
+    <table>
+        <thead>
+            <tr class="weekdays">
+                <th>Su</th>
+                <th>Mo</th>
+                <th>Tu</th>
+                <th>We</th>
+                <th>Th</th>
+                <th>Fr</th>
+                <th>Sa</th>
+            </tr>
+        </thead>
+        <tbody class="days">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <div class="jumbotron">
@@ -76,9 +97,177 @@
             <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
             <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
         </div>*@
-    <div class="col-md-5 about-section">
+    <div class="col-md-10 about-section">
         <h2>About</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Contact Us &raquo;</a></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+           Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. 
+           Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Sit amet luctus venenatis lectus magna. Aliquam etiam erat velit scelerisque. 
+           Etiam dignissim diam quis enim lobortis scelerisque fermentum. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Magna fringilla 
+           urna porttitor rhoncus. Urna condimentum mattis pellentesque id nibh tortor id. Lobortis elementum nibh tellus molestie nunc non blandit massa enim. 
+           Sapien et ligula ullamcorper malesuada proin. Sit amet purus gravida quis. Laoreet suspendisse interdum consectetur libero. Consectetur adipiscing elit 
+           ut aliquam. Pretium fusce id velit ut tortor pretium viverra. Purus sit amet luctus venenatis lectus magna fringilla urna. In massa tempor nec feugiat nisl 
+           pretium fusce id.</p>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var today = new Date(),
+            year = today.getFullYear(),
+            month = today.getMonth(),
+            monthTag = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            day = today.getDate(),
+            days = document.getElementsByTagName('td'),
+            selectedDay,
+            setDate,
+            daysLen = days.length;
+
+        function Calendar(selector, options) {
+            this.options = options;
+            this.draw();
+        }
+
+        Calendar.prototype.draw = function () {
+            this.getCookie('selected_day');
+            this.getOptions();
+            this.drawDays();
+            var that = this,
+                reset = document.getElementById('reset'),
+                pre = document.getElementsByClassName('prev'),
+                next = document.getElementsByClassName('next');
+
+            pre[0].addEventListener('click', function () { that.preMonth(); });
+            next[0].addEventListener('click', function () { that.nextMonth(); });
+            reset.addEventListener('click', function () { that.reset(); });
+            while (daysLen--) {
+                days[daysLen].addEventListener('click', function () { that.clickDay(this); });
+            }
+        };
+
+        Calendar.prototype.drawHeader = function (e) {
+            var headDay = document.getElementsByClassName('head-day'),
+                headMonth = document.getElementsByClassName('head-month');
+
+            e ? headDay[0].innerHTML = e : headDay[0].innerHTML = day;
+            headMonth[0].innerHTML = monthTag[month] + " - " + year;
+        };
+
+        Calendar.prototype.drawDays = function () {
+            var startDay = new Date(year, month, 1).getDay(),
+                nDays = new Date(year, month + 1, 0).getDate(),
+
+                n = startDay;
+            for (var k = 0; k < 42; k++) {
+                days[k].innerHTML = '';
+                days[k].id = '';
+                days[k].className = '';
+            }
+
+            for (var i = 1; i <= nDays; i++) {
+                days[n].innerHTML = i;
+                n++;
+            }
+
+            for (var j = 0; j < 42; j++) {
+                if (days[j].innerHTML === "") {
+
+                   /* days[j].id = "disabled";*/
+
+                } else if (j === day + startDay - 1) {
+                    if ((this.options && (month === setDate.getMonth()) && (year === setDate.getFullYear())) || (!this.options && (month === today.getMonth()) && (year === today.getFullYear()))) {
+                        this.drawHeader(day);
+                        days[j].id = "today";
+                    }
+                }
+                if (selectedDay) {
+                    if ((j === selectedDay.getDate() + startDay - 1) && (month === selectedDay.getMonth()) && (year === selectedDay.getFullYear())) {
+                        days[j].className = "selected";
+                        this.drawHeader(selectedDay.getDate());
+                    }
+                }
+            }
+        };
+
+        Calendar.prototype.clickDay = function (o) {
+            var selected = document.getElementsByClassName("selected"),
+                len = selected.length;
+            if (len !== 0) {
+                selected[0].className = "";
+            }
+            o.className = "selected";
+            selectedDay = new Date(year, month, o.innerHTML);
+            this.drawHeader(o.innerHTML);
+            this.setCookie('selected_day', 1);
+
+        };
+
+        Calendar.prototype.preMonth = function () {
+            if (month < 1) {
+                month = 11;
+                year = year - 1;
+            } else {
+                month = month - 1;
+            }
+            this.drawHeader(1);
+            this.drawDays();
+        };
+
+        Calendar.prototype.nextMonth = function () {
+            if (month >= 11) {
+                month = 0;
+                year = year + 1;
+            } else {
+                month = month + 1;
+            }
+            this.drawHeader(1);
+            this.drawDays();
+        };
+
+        Calendar.prototype.getOptions = function () {
+            if (this.options) {
+                var sets = this.options.split('-');
+                setDate = new Date(sets[0], sets[1] - 1, sets[2]);
+                day = setDate.getDate();
+                year = setDate.getFullYear();
+                month = setDate.getMonth();
+            }
+        };
+
+        Calendar.prototype.reset = function () {
+            month = today.getMonth();
+            year = today.getFullYear();
+            day = today.getDate();
+            this.options = undefined;
+            this.drawDays();
+        };
+
+        Calendar.prototype.setCookie = function (name, expiredays) {
+            if (expiredays) {
+                var date = new Date();
+                date.setTime(date.getTime() + (expiredays * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            } else {
+                var expires = "";
+            }
+            document.cookie = name + "=" + selectedDay + expires + "; path=/";
+        };
+
+        Calendar.prototype.getCookie = function (name) {
+            if (document.cookie.length) {
+                var arrCookie = document.cookie.split(';'),
+                    nameEQ = name + "=";
+                for (var i = 0, cLen = arrCookie.length; i < cLen; i++) {
+                    var c = arrCookie[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1, c.length);
+
+                    }
+                    if (c.indexOf(nameEQ) === 0) {
+                        selectedDay = new Date(c.substring(nameEQ.length, c.length));
+                    }
+                }
+            }
+        };
+        var calendar = new Calendar();
+    }, false);
+</script>
