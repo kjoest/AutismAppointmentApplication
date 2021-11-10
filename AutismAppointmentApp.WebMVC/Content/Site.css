@@ -6,6 +6,10 @@
     font-family: Verdana, sans-serif;
 }
 
+hr {
+    background-color: #2fa4e7;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -126,12 +130,12 @@ textarea {
 
 /*Patient Styling*/
 
-.patient-text {
+.patient-header {
     margin-top: 20px;
 }
 
 .patient-create-button {
-    margin: 10px;
+    margin: 20px;
 }
 
 .patient-delete {
@@ -149,4 +153,47 @@ textarea {
 
 .save-patient-button {
     margin: 10px;
+}
+
+/*Appointment Styling*/
+.appointment-header{
+    margin-top: 20px;
+}
+
+.appointment-create-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.appointment-delete{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.appointment-detail{
+    margin-top: 40px;
+}
+
+.appointment-edit{
+    margin-top: 20px;
+}
+
+.appointment-save-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.appointment-index{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Therapist Styling*/
+.therapist-header{
+    margin-top: 20px;
+}
+
+.therapist-create-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

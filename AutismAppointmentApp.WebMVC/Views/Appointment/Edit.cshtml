@@ -4,14 +4,12 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>AppointmentEdit</h4>
+        <h4 class="appointment-edit">Reschedule your Appointment</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -47,8 +45,8 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10 appointment-save-button">
+                <input type="submit" value="Save" class="btn btn-default btn btn-primary btn-sm" />
             </div>
         </div>
     </div>
