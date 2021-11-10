@@ -15,11 +15,17 @@ namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
     {
         private ApplicationDbContext _db = new ApplicationDbContext();
 
+        private readonly IAppointmentService _service;
+
+        public AppointmentController(IAppointmentService service)
+        {
+            _service = service;
+        }
+
         // GET: Appointment
         public ActionResult Index()
         {
-            var service = CreateAppointmentService();
-            var model = service.GetAllAppointments();
+            var model = _service.GetAllAppointments(User.Identity.GetUserId());
             return View(model);
         }
 
@@ -48,9 +54,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
             if (!ModelState.IsValid)
                 return View(model);
 
-            var service = CreateAppointmentService();
+            model.UserId = User.Identity.GetUserId();
 
-            if (service.CreateAppointment(model))
+            if (_service.CreateAppointment(model))
             {
                 TempData["SaveResult"] = "Your appointment was scheduled.";
                 return RedirectToAction("Index");
@@ -78,15 +84,14 @@ namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
 
         public ActionResult Details(int id)
         {
-            var service = CreateAppointmentService();
-            var model = service.GetAppointmentById(id);
+            var model = _service.GetAppointmentById(id, User.Identity.GetUserId());
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            var service = CreateAppointmentService();
-            var entity = service.GetAppointmentById(id);
+            var entity = _service.GetAppointmentById(id, User.Identity.GetUserId());
+
             var model = new AppointmentEdit
             {
                 AppointmentId = entity.AppointmentId,
@@ -111,9 +116,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
                 return View(model);
             }
 
-            var service = CreateAppointmentService();
+            model.UserId = User.Identity.GetUserId();
 
-            if (service.UpdateAppointment(model))
+            if (_service.UpdateAppointment(model))
             {
                 TempData["SaveResult"] = "Your appointment was changed.";
                 return RedirectToAction("Index");
@@ -127,8 +132,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = CreateAppointmentService();
-            var model = service.GetAppointmentById(id);
+            var model = _service.GetAppointmentById(id, User.Identity.GetUserId());
             return View(model);
         }
 
@@ -137,17 +141,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
         [ActionName("Delete")]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateAppointmentService();
-            service.DeleteAppointment(id);
+            _service.DeleteAppointment(id, User.Identity.GetUserId());
             TempData["SaveResult"] = "Your appointment was canceled.";
             return RedirectToAction("Index");
-        }
-
-        private AppointmentService CreateAppointmentService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new AppointmentService(userId);
-            return service;
         }
     }
 }

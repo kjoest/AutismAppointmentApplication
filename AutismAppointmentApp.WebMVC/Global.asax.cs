@@ -1,3 +1,4 @@
+using AutismAppointmentApp.Services.AppointmentServices;
 using AutismAppointmentApp.Services.PatientServices;
 using AutismAppointmentApp.Services.TherapistServices;
 using Autofac;
@@ -40,6 +41,7 @@ namespace AutismAppointmentApp.WebMVC
             //builder.InjectActionInvoker();
             builder.RegisterType<PatientService>().As<IPatientService>();
             builder.RegisterType<TherapistService>().As<ITherapistService>();
+            builder.RegisterType<AppointmentService>().As<IAppointmentService>();
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

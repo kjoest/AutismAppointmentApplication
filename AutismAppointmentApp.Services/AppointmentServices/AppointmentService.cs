@@ -9,20 +9,13 @@ using System.Threading.Tasks;
 
 namespace AutismAppointmentApp.Services.AppointmentServices
 {
-    public class AppointmentService
+    public class AppointmentService : IAppointmentService
     {
-        private readonly Guid _userId;
-
-        public AppointmentService(Guid userId)
-        {
-            _userId = userId;
-        }
-
         public bool CreateAppointment(AppointmentCreate model)
         {
             var entity = new Appointment()
             {
-                OwnerId = _userId,
+                OwnerId = Guid.Parse(model.UserId),
                 DateOfAppointment = model.DateOfAppointment,
                 DetailOfAppointment = model.DetailOfAppointment,
                 TherapistId = model.TherapistId,
@@ -37,14 +30,16 @@ namespace AutismAppointmentApp.Services.AppointmentServices
             }
         }
 
-        public IEnumerable<AppointmentListDetail> GetAllAppointments()
+        public IEnumerable<AppointmentListDetail> GetAllAppointments(string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Appointments
-                    .Where(a => a.OwnerId == _userId)
+                    .Where(a => a.OwnerId == guid)
                     .Select(
                         a =>
                             new AppointmentListDetail
@@ -62,14 +57,16 @@ namespace AutismAppointmentApp.Services.AppointmentServices
             }
         }
 
-        public AppointmentDetail GetAppointmentById(int id)
+        public AppointmentDetail GetAppointmentById(int id, string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Appointments
-                    .Single(a => a.AppointmentId == id && a.OwnerId == _userId);
+                    .Single(a => a.AppointmentId == id && a.OwnerId == guid);
                 return new AppointmentDetail
                 {
                     AppointmentId = entity.AppointmentId,
@@ -85,12 +82,14 @@ namespace AutismAppointmentApp.Services.AppointmentServices
 
         public bool UpdateAppointment(AppointmentEdit model)
         {
+            var guid = Guid.Parse(model.UserId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Appointments
-                    .Single(a => a.AppointmentId == model.AppointmentId && a.OwnerId == _userId);
+                    .Single(a => a.AppointmentId == model.AppointmentId && a.OwnerId == guid);
 
                 entity.AppointmentId = model.AppointmentId;
                 entity.DateOfAppointment = model.DateOfAppointment;
@@ -102,14 +101,16 @@ namespace AutismAppointmentApp.Services.AppointmentServices
             }
         }
 
-        public bool DeleteAppointment(int id)
+        public bool DeleteAppointment(int id, string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Appointments
-                    .Single(a => a.AppointmentId == id && a.OwnerId == _userId);
+                    .Single(a => a.AppointmentId == id && a.OwnerId == guid);
 
                 ctx.Appointments.Remove(entity);
 

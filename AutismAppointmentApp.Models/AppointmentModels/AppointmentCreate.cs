@@ -22,6 +22,7 @@ namespace AutismAppointmentApp.Models.AppointmentModels
         [Required]
         [Display(Name = "Patient: ")]
         public int PatientId { get; set; }
+        public string UserId { get; set; }
 
         public IEnumerable<SelectListItem> Patients { get; set; }
         public IEnumerable<SelectListItem> Therapists { get; set; }
