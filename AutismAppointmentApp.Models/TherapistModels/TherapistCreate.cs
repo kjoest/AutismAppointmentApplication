@@ -23,5 +23,6 @@ namespace AutismAppointmentApp.Models.TherapistModels
         [DefaultValue(false)]
         [Display(Name = "Certified: ")]
         public bool IsCertified { get; set; }
+        public string UserId { get; set; }
     }
 }

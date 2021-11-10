@@ -12,11 +12,17 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
     [Authorize]
     public class TherapistController : Controller
     {
+        private readonly ITherapistService _service;
+
+        public TherapistController(ITherapistService service)
+        {
+            _service = service;
+        }
+
         // GET: Therapist
         public ActionResult Index()
         {
-            var service = CreateTherapistService();
-            var model = service.GetAllTherapists();
+            var model = _service.GetAllTherapists(User.Identity.GetUserId());
             return View(model);
         }
 
@@ -32,9 +38,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             if (!ModelState.IsValid)
                 return View(model);
 
-            var service = CreateTherapistService();
+            model.UserId = User.Identity.GetUserId();
 
-            if (service.CreateTherapist(model))
+            if (_service.CreateTherapist(model))
             {
                 TempData["SaveResult"] = "The therapist was added successfully.";
                 return RedirectToAction("Index");
@@ -47,15 +53,13 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
 
         public ActionResult Details(int id)
         {
-            var service = CreateTherapistService();
-            var model = service.GetTherapistById(id);
+            var model = _service.GetTherapistById(id, User.Identity.GetUserId());
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            var service = CreateTherapistService();
-            var entity = service.GetTherapistById(id);
+            var entity = _service.GetTherapistById(id, User.Identity.GetUserId());
             var model =
                 new TherapistEdit
                 {
@@ -82,9 +86,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
                 return View(model);
             }
 
-            var service = CreateTherapistService();
+            model.UserId = User.Identity.GetUserId();
 
-            if (service.UpdateTherapist(model))
+            if (_service.UpdateTherapist(model))
             {
                 TempData["SaveResult"] = "The therapist was updated.";
                 return RedirectToAction("Index");
@@ -97,8 +101,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = CreateTherapistService();
-            var model = service.GetTherapistById(id);
+            var model = _service.GetTherapistById(id, User.Identity.GetUserId());
             return View(model);
         }
 
@@ -107,17 +110,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
         [ActionName("Delete")]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateTherapistService();
-            service.DeleteTherapist(id);
-            TempData["SaveResult"] = "The therapist was deleted";
+            _service.DeleteTherapist(id, User.Identity.GetUserId());
+            TempData["SaveResult"] = "The therapist was deleted successfully.";
             return RedirectToAction("Index");
-        }
-
-        private TherapistService CreateTherapistService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new TherapistService(userId);
-            return service;
         }
     }
 }

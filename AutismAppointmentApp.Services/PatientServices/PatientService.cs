@@ -36,6 +36,7 @@ namespace AutismAppointmentApp.Services.PatientServices
         public IEnumerable<PatientListDetail> GetAllPatients(string userId)
         {
             var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var query =

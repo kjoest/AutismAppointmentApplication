@@ -1,4 +1,5 @@
 using AutismAppointmentApp.Services.PatientServices;
+using AutismAppointmentApp.Services.TherapistServices;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Microsoft.AspNet.Identity;
@@ -38,6 +39,7 @@ namespace AutismAppointmentApp.WebMVC
             //// OPTIONAL: Enable action method parameter injection (RARE).
             //builder.InjectActionInvoker();
             builder.RegisterType<PatientService>().As<IPatientService>();
+            builder.RegisterType<TherapistService>().As<ITherapistService>();
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

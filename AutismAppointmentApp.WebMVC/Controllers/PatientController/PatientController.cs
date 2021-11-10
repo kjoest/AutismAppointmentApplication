@@ -69,7 +69,6 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
         public ActionResult Delete(int id)
         {
             var model = _service.GetPatientById(id, User.Identity.GetUserId());
-
             return View(model);
         }
 

@@ -9,20 +9,13 @@ using System.Threading.Tasks;
 
 namespace AutismAppointmentApp.Services.TherapistServices
 {
-    public class TherapistService
+    public class TherapistService : ITherapistService
     {
-        private readonly Guid _userId;
-
-        public TherapistService(Guid userId)
-        {
-            _userId = userId;
-        }
-
         public bool CreateTherapist(TherapistCreate model)
         {
             var entity = new Therapist()
             {
-                OwnerId = _userId,
+                OwnerId = Guid.Parse(model.UserId),
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 TherapySpecialist = model.TherapySpecialist,
@@ -37,14 +30,16 @@ namespace AutismAppointmentApp.Services.TherapistServices
             }
         }
 
-        public IEnumerable<TherapistListDetail> GetAllTherapists()
+        public IEnumerable<TherapistListDetail> GetAllTherapists(string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Therapists
-                    .Where(t => t.OwnerId == _userId)
+                    .Where(t => t.OwnerId == guid)
                     .Select(
                         t =>
                             new TherapistListDetail
@@ -62,14 +57,16 @@ namespace AutismAppointmentApp.Services.TherapistServices
             }
         }
 
-        public TherapistDetail GetTherapistById(int id)
+        public TherapistDetail GetTherapistById(int id, string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Therapists
-                    .Single(t => t.TherapistId == id && t.OwnerId == _userId);
+                    .Single(t => t.TherapistId == id && t.OwnerId == guid);
                 return new TherapistDetail
                 {
                     TherapistId = entity.TherapistId,
@@ -85,12 +82,14 @@ namespace AutismAppointmentApp.Services.TherapistServices
 
         public bool UpdateTherapist(TherapistEdit model)
         {
+            var guid = Guid.Parse(model.UserId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Therapists
-                    .Single(t => t.TherapistId == model.TherapistId && t.OwnerId == _userId);
+                    .Single(t => t.TherapistId == model.TherapistId && t.OwnerId == guid);
 
                 entity.TherapistId = model.TherapistId;
                 entity.FirstName = model.FirstName;
@@ -103,14 +102,16 @@ namespace AutismAppointmentApp.Services.TherapistServices
             }
         }
 
-        public bool DeleteTherapist(int id)
+        public bool DeleteTherapist(int id, string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Therapists
-                    .Single(t => t.TherapistId == id && t.OwnerId == _userId);
+                    .Single(t => t.TherapistId == id && t.OwnerId == guid);
 
                 ctx.Therapists.Remove(entity);
 
