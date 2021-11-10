@@ -10,23 +10,30 @@ using System.Web.Mvc;
 
 namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
 {
+    [Authorize]
     public class PatientController : Controller
     {
-        // GET: Student
+        private readonly IPatientService _service;
+
+        public PatientController(IPatientService service)
+        {
+            _service = service;
+        }
+
+        // GET: Patient
         public ActionResult Index()
         {
-            var service = CreatePatientService();
-            var model = service.GetAllPatients();
+            var model = _service.GetAllPatients(User.Identity.GetUserId());
             return View(model);
         }
 
-        // GET: Student/Create
+        // GET: Patient/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        //POST: Student/Create
+        //POST: Patient/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PatientCreate model)
@@ -34,9 +41,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
             if (!ModelState.IsValid)
                 return View(model);
 
-            var service = CreatePatientService();
+            model.UserId = User.Identity.GetUserId();
 
-            if (service.CreatePatient(model))
+            if (_service.CreatePatient(model))
             {
                 TempData["SaveResult"] = "The patient was added successfully.";
                 return RedirectToAction("Index");
@@ -46,11 +53,10 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
             return View(model);
         }
 
-        // GET: Student/{id}
+        // GET: Patient/{id}
         public ActionResult Details(int id)
         {
-            var service = CreatePatientService();
-            var model = service.GetPatientById(id);
+            var model = _service.GetPatientById(id, User.Identity.GetUserId());
 
             if (model == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -58,33 +64,30 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
             return View(model);
         }
 
-        // GET: Student/Delete/{id}
+        // GET: Patient/Delete/{id}
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = CreatePatientService();
-            var model = service.GetPatientById(id);
+            var model = _service.GetPatientById(id, User.Identity.GetUserId());
 
             return View(model);
         }
 
-        // POST: Student/Delete/{id}
+        // POST: Patient/Delete/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
         public ActionResult DeletePost(int id)
         {
-            var service = CreatePatientService();
-            service.DeletePatient(id);
+            _service.DeletePatient(id, User.Identity.GetUserId());
             TempData["SaveResult"] = "The patient was deleted successfully.";
             return RedirectToAction("Index");
         }
 
-        //GET: Student/Edit/{id}
+        //GET: Patient/Edit/{id}
         public ActionResult Edit(int id)
         {
-            var service = CreatePatientService();
-            var entity = service.GetPatientById(id);
+            var entity = _service.GetPatientById(id, User.Identity.GetUserId());
             var model =
                 new PatientEdit
                 {
@@ -115,9 +118,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
                 return View(model);
             }
 
-            var service = CreatePatientService();
+            model.UserId = User.Identity.GetUserId();
 
-            if (service.UpdatePatient(model))
+            if (_service.UpdatePatient(model))
             {
                 TempData["SaveResult"] = "The patient was updated.";
                 return RedirectToAction("Index");
@@ -125,13 +128,6 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
 
             ModelState.AddModelError("", "The patient could not be updated... Try again later.");
             return View(model);
-        }
-
-        private PatientService CreatePatientService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PatientService(userId);
-            return service;
         }
     }
 }

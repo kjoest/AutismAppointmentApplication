@@ -9,21 +9,14 @@ using System.Threading.Tasks;
 
 namespace AutismAppointmentApp.Services.PatientServices
 {
-    public class PatientService
+    public class PatientService : IPatientService
     {
-        private readonly Guid _userId;
-
-        public PatientService(Guid userId)
-        {
-            _userId = userId;
-        }
-
         public bool CreatePatient(PatientCreate model)
         {
             var entity =
                 new Patient()
                 {
-                    OwnerId = _userId,
+                    OwnerId = Guid.Parse(model.UserId),
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Gender = model.Gender,
@@ -40,14 +33,15 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public IEnumerable<PatientListDetail> GetAllPatients()
+        public IEnumerable<PatientListDetail> GetAllPatients(string userId)
         {
+            var guid = Guid.Parse(userId);
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Patients
-                    .Where(s => s.OwnerId == _userId)
+                    .Where(s => s.OwnerId == guid)
                     .Select(
                         s =>
                             new PatientListDetail
@@ -67,14 +61,16 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public PatientDetail GetPatientById(int id)
+        public PatientDetail GetPatientById(int id, string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Patients
-                    .Single(s => s.PatientId == id && s.OwnerId == _userId);
+                    .SingleOrDefault(s => s.PatientId == id && s.OwnerId == guid);
                 return new PatientDetail
                 {
                     PatientId = entity.PatientId,
@@ -92,12 +88,14 @@ namespace AutismAppointmentApp.Services.PatientServices
 
         public bool UpdatePatient(PatientEdit model)
         {
+            var guid = Guid.Parse(model.UserId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Patients
-                    .Single(s => s.PatientId == model.PatientId && s.OwnerId == _userId);
+                    .SingleOrDefault(s => s.PatientId == model.PatientId && s.OwnerId == guid);
 
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
@@ -110,14 +108,16 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public bool DeletePatient(int id)
+        public bool DeletePatient(int id, string userId)
         {
+            var guid = Guid.Parse(userId);
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Patients
-                    .Single(s => s.PatientId == id && s.OwnerId == _userId);
+                    .Single(s => s.PatientId == id && s.OwnerId == guid);
 
                 ctx.Patients.Remove(entity);
 

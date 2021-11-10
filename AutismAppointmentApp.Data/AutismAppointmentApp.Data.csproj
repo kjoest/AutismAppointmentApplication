@@ -56,6 +56,15 @@
   <ItemGroup>
     <Compile Include="AppointmentData\Appointment.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202110292109291_InitialCreate.cs" />
+    <Compile Include="Migrations\202110292109291_InitialCreate.Designer.cs">
+      <DependentUpon>202110292109291_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111102020016_InitialMigration.cs" />
+    <Compile Include="Migrations\202111102020016_InitialMigration.Designer.cs">
+      <DependentUpon>202111102020016_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientData\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TherapistData\Therapist.cs" />
@@ -125,6 +134,14 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202110292109291_InitialCreate.resx">
+      <DependentUpon>202110292109291_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111102020016_InitialMigration.resx">
+      <DependentUpon>202111102020016_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

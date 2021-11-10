@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace AutismAppointmentApp.WebMVC.Controllers.AppointmentController
 {
+    [Authorize]
     public class AppointmentController : Controller
     {
         private ApplicationDbContext _db = new ApplicationDbContext();

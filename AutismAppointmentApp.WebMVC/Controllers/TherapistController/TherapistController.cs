@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
 {
+    [Authorize]
     public class TherapistController : Controller
     {
         // GET: Therapist

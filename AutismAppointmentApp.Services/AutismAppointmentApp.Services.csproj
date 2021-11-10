@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppointmentServices\AppointmentService.cs" />
+    <Compile Include="PatientServices\IPatientService.cs" />
     <Compile Include="PatientServices\PatientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TherapistServices\TherapistService.cs" />
