@@ -27,8 +27,8 @@
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName) </h5><br />
                 <p class="card-text">@Html.DisplayFor(modelItem => item.Gender)</p>
-                <p class="card-text">@Html.DisplayFor(modelItem => item.TherapyNeeded)</p>
-                <p class="card-text">@Html.DisplayFor(modelItem => item.DateOfBirth)</p>
+                <p class="card-text">Date of Birth: @Html.DisplayFor(modelItem => item.DateOfBirth)</p>
+                <p class="card-text">Therapy Needed: @Html.DisplayFor(modelItem => item.TherapyNeeded)</p>
                 <p class="card-text">Has Therapy: @Html.DisplayFor(modelItem => item.HasTherapy)</p>
                 <p class="card-text">Date Added: @Html.DisplayFor(modelItem => item.CreatedUtc)</p>
                 <p class="card-text">Date Modified: @Html.DisplayFor(modelItem => item.ModifiedUtc)</p>

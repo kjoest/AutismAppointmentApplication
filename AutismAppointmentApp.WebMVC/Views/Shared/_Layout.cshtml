@@ -19,10 +19,16 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Patient")">Current Patients</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Create", "Patient")">Add a Patient</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "Therapist")">Active Therapists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Create", "Therapist")">Add a Therapist</a>
                     </li>
                     <div class="dropdown-divider"></div>
                     <li class="nav-item">
