@@ -6,9 +6,9 @@
 
 <h2 class="appointment-index">Current Appointments</h2>
 
-<p>
+<button id="buttons">
     @Html.ActionLink("Create New", "Create")
-</p>
+</button>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -18,7 +18,29 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="card text-white bg-primary mb-3 index-cards" style="max-width: 25rem;">
+            <div class="card-header">Appointment ID: @Html.DisplayFor(modelItem => item.AppointmentId)</div>
+            <div class="card-body">
+                <h5 class="card-title">Appointment Information</h5><br />
+                <p class="card-text">Date of Appointment: @Html.DisplayFor(modelItem => item.DateOfAppointment)</p>
+                <p class="card-text">Detail of Appointment: @Html.DisplayFor(modelItem => item.DetailOfAppointment)</p>
+                <p class="card-text">Therapist ID: @Html.DisplayFor(modelItem => item.TherapistId)</p>
+                <p class="card-text">Patient ID: @Html.DisplayFor(modelItem => item.PatientId)</p>
+                <p class="card-text">Date Added: @Html.DisplayFor(modelItem => item.CreatedUtc)</p>
+                <p class="card-text">Date Modified: @Html.DisplayFor(modelItem => item.ModifiedUtc)</p>
+                <button class="buttons">@Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId })</button>|
+                <button class="buttons">@Html.ActionLink("Details", "Details", new { id = item.AppointmentId })</button>|
+                <button class="buttons">@Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId })</button>
+            </div>
+        </div>
+    }
+</div>
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AppointmentId)
@@ -76,4 +98,4 @@
         </tr>
     }
 
-</table>
+</table>*@

@@ -22,7 +22,7 @@
 <div class="row row-cols-1 row-cols-md-2 g-4">
     @foreach (var item in Model)
     {
-        <div class="card text-white bg-primary mb-3 patient-index-cards" style="max-width: 25rem;">
+        <div class="card text-white bg-primary mb-3 index-cards" style="max-width: 25rem;">
             <div class="card-header">Patient ID: @Html.DisplayFor(modelItem => item.PatientId)</div>
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName) </h5><br />

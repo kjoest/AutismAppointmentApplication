@@ -30,6 +30,11 @@ hr {
     box-shadow: 0 0 20px #2fa4e7;
 }
 
+.index-cards {
+    margin-top: 3rem;
+    margin-left: 5rem;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -166,7 +171,13 @@ textarea {
 
 .patient-create-button {
     margin: 20px;
+    width: 5%;
 }
+
+    .patient-create-button:hover {
+        -webkit-box-shadow: 0 0 20px #2fa4e7;
+        box-shadow: 0 0 20px #2fa4e7;
+    }
 
 .patient-delete {
     margin-top: 20px;
@@ -188,11 +199,6 @@ textarea {
 .patient-index{
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.patient-index-cards{
-    margin-top: 3rem;
-    margin-left: 5rem;
 }
 
 /*Appointment Styling*/
