@@ -6,9 +6,10 @@
 
 <h2 class="patient-index">Current Patients</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button id="buttons">
+    @Html.ActionLink("Add a Patient", "Create")
+</button>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -18,80 +19,101 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PatientId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TherapyNeeded)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HasTherapy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </th>
-        <th></th>
-    </tr>
-
+<div class="row row-cols-1 row-cols-md-2 g-4">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PatientId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TherapyNeeded)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasTherapy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PatientId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PatientId })
-            </td>
-        </tr>
+        <div class="card text-white bg-primary mb-3 patient-index-cards" style="max-width: 25rem;">
+            <div class="card-header">Patient ID: @Html.DisplayFor(modelItem => item.PatientId)</div>
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName) </h5><br />
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Gender)</p>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.TherapyNeeded)</p>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.DateOfBirth)</p>
+                <p class="card-text">Has Therapy: @Html.DisplayFor(modelItem => item.HasTherapy)</p>
+                <p class="card-text">Date Added: @Html.DisplayFor(modelItem => item.CreatedUtc)</p>
+                <p class="card-text">Date Modified: @Html.DisplayFor(modelItem => item.ModifiedUtc)</p>
+                <button class="buttons">@Html.ActionLink("Edit", "Edit", new { id = item.PatientId })</button>|
+                <button class="buttons">@Html.ActionLink("Details", "Details", new { id = item.PatientId })</button>|
+                <button class="buttons">@Html.ActionLink("Delete", "Delete", new { id = item.PatientId })</button>
+            </div>
+        </div>
     }
+</div>
 
-</table>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TherapyNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasTherapy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TherapyNeeded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasTherapy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientId })
+                </td>
+            </tr>
+        }
+
+    </table>*@

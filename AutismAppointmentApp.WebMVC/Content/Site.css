@@ -10,6 +10,26 @@ hr {
     background-color: #2fa4e7;
 }
 
+.buttons {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.buttons:hover{
+    -webkit-box-shadow: 0 0 20px #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+#buttons{
+    background-color: white;
+    border-radius: 20px;
+}
+
+#buttons:hover {
+    -webkit-box-shadow: 0 0 20px #2fa4e7;
+    box-shadow: 0 0 20px #2fa4e7;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -47,9 +67,19 @@ textarea {
     margin-left: 0px;
 }
 
+    .autism-button:hover {
+        -webkit-box-shadow: 0 0 50px #2fa4e7;
+        box-shadow: 0 0 50px #2fa4e7;
+    }
+
 .appointment-button {
     margin: 20px;
 }
+
+    .appointment-button:hover {
+        -webkit-box-shadow: 0 0 50px #2fa4e7;
+        box-shadow: 0 0 50px #2fa4e7;
+    }
 
 #autism-text {
     font-family: Arial;
@@ -158,6 +188,11 @@ textarea {
 .patient-index{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.patient-index-cards{
+    margin-top: 3rem;
+    margin-left: 5rem;
 }
 
 /*Appointment Styling*/
