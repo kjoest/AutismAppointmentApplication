@@ -19,6 +19,8 @@ namespace AutismAppointmentApp.Models.PatientModels
         public string Gender { get; set; }
         [Display(Name = "Therapy Needed: ")]
         public string TherapyNeeded { get; set; }
+        [Display(Name = "Address: ")]
+        public string Address { get; set; }
         [Display(Name = "Has Therapy: ")]
         public bool HasTherapy { get; set; }
         public string UserId { get; set; }

@@ -23,6 +23,9 @@ namespace AutismAppointmentApp.Models.PatientModels
         [Display(Name = "Therapy Needed: ")]
         public string TherapyNeeded { get; set; }
         [Required]
+        [Display(Name = "Address: ")]
+        public string Address { get; set; }
+        [Required]
         [Display(Name = "Date of Birth: ")]
         public DateTime DateOfBirth { get; set; }
         [Required]

@@ -94,6 +94,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
                     FirstName = entity.FirstName,
                     LastName = entity.LastName,
                     Gender = entity.Gender,
+                    Address = entity.Address,
                     TherapyNeeded = entity.TherapyNeeded,
                     HasTherapy = entity.HasTherapy
                 };

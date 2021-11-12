@@ -30,6 +30,8 @@ namespace AutismAppointmentApp.Models.PatientModels
         public string TherapyNeeded { get; set; }
         [Display(Name = "Date of Birth: ")]
         public DateTime DateOfBirth { get; set; }
+        [Display(Name = "Address: ")]
+        public string Address { get; set; }
         [DefaultValue(false)]
         [Display(Name = "Has Therapy: ")]
         public bool HasTherapy { get; set; }

@@ -20,6 +20,7 @@ namespace AutismAppointmentApp.Services.PatientServices
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Gender = model.Gender,
+                    Address = model.Address,
                     TherapyNeeded = model.TherapyNeeded,
                     DateOfBirth = model.DateOfBirth,
                     HasTherapy = model.HasTherapy,
@@ -52,6 +53,7 @@ namespace AutismAppointmentApp.Services.PatientServices
                                 LastName = s.LastName,
                                 Gender = s.Gender,
                                 TherapyNeeded = s.TherapyNeeded,
+                                Address = s.Address,
                                 DateOfBirth = s.DateOfBirth,
                                 HasTherapy = s.HasTherapy,
                                 CreatedUtc = s.CreatedUtc,
@@ -78,6 +80,7 @@ namespace AutismAppointmentApp.Services.PatientServices
                     FirstName = entity.FirstName,
                     LastName = entity.LastName,
                     Gender = entity.Gender,
+                    Address = entity.Address,
                     TherapyNeeded = entity.TherapyNeeded,
                     DateOfBirth = entity.DateOfBirth,
                     HasTherapy = entity.HasTherapy,
@@ -101,6 +104,7 @@ namespace AutismAppointmentApp.Services.PatientServices
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
                 entity.Gender = model.Gender;
+                entity.Address = model.Address;
                 entity.TherapyNeeded = model.TherapyNeeded;
                 entity.HasTherapy = model.HasTherapy;
                 entity.ModifiedUtc = DateTimeOffset.Now;

@@ -38,6 +38,9 @@ namespace AutismAppointmentApp.Data.PatientData
         [Display(Name = "Date of Birth: ")]
         public DateTime DateOfBirth { get; set; }
         [Required]
+        [Display(Name = "Address: ")]
+        public string Address { get; set; }
+        [Required]
         [DefaultValue(false)]
         [Display(Name = "Has Therapy: ")]
         public bool HasTherapy { get; set; }

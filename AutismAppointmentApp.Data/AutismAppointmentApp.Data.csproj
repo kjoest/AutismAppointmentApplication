@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202111102020016_InitialMigration.Designer.cs">
       <DependentUpon>202111102020016_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111120055575_UpdatedPatientModels.cs" />
+    <Compile Include="Migrations\202111120055575_UpdatedPatientModels.Designer.cs">
+      <DependentUpon>202111120055575_UpdatedPatientModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PatientData\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111102020016_InitialMigration.resx">
       <DependentUpon>202111102020016_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111120055575_UpdatedPatientModels.resx">
+      <DependentUpon>202111120055575_UpdatedPatientModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
