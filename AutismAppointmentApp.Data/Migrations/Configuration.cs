@@ -10,7 +10,6 @@ namespace AutismAppointmentApp.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "AutismAppointmentApp.Data.ApplicationDbContext";
         }
 
         protected override void Seed(AutismAppointmentApp.Data.ApplicationDbContext context)

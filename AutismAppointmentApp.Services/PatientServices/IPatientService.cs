@@ -5,10 +5,10 @@ namespace AutismAppointmentApp.Services.PatientServices
 {
     public interface IPatientService
     {
-        bool CreatePatient(PatientCreate model);
+        bool CreatePatient(PatientCreate model, string path);
         bool DeletePatient(int id, string userId);
         IEnumerable<PatientListDetail> GetAllPatients(string userId);
-        PatientDetail GetPatientById(int id, string userId);
+        PatientDetail GetPatientById(int id, string userId, string path);
         bool UpdatePatient(PatientEdit model);
     }
 }

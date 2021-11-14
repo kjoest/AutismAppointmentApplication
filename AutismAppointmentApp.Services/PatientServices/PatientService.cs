@@ -11,7 +11,7 @@ namespace AutismAppointmentApp.Services.PatientServices
 {
     public class PatientService : IPatientService
     {
-        public bool CreatePatient(PatientCreate model)
+        public bool CreatePatient(PatientCreate model, string path)
         {
             var entity =
                 new Patient()
@@ -24,7 +24,8 @@ namespace AutismAppointmentApp.Services.PatientServices
                     TherapyNeeded = model.TherapyNeeded,
                     DateOfBirth = model.DateOfBirth,
                     HasTherapy = model.HasTherapy,
-                    CreatedUtc = DateTime.Now
+                    CreatedUtc = DateTime.Now,
+                    ImagePath = path
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -64,7 +65,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public PatientDetail GetPatientById(int id, string userId)
+        public PatientDetail GetPatientById(int id, string path, string userId)
         {
             var guid = Guid.Parse(userId);
 
@@ -85,7 +86,8 @@ namespace AutismAppointmentApp.Services.PatientServices
                     DateOfBirth = entity.DateOfBirth,
                     HasTherapy = entity.HasTherapy,
                     CreatedUtc = entity.CreatedUtc,
-                    ModifiedUtc = entity.ModifiedUtc
+                    ModifiedUtc = entity.ModifiedUtc,
+                    ImagePath = path,
                 };
             }
         }

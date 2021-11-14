@@ -3,7 +3,7 @@ namespace AutismAppointmentApp.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
@@ -37,9 +37,11 @@ namespace AutismAppointmentApp.Data.Migrations
                         Gender = c.String(nullable: false),
                         TherapyNeeded = c.String(nullable: false),
                         DateOfBirth = c.DateTime(nullable: false),
+                        Address = c.String(nullable: false),
                         HasTherapy = c.Boolean(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        ImagePath = c.String(),
                     })
                 .PrimaryKey(t => t.PatientId);
             

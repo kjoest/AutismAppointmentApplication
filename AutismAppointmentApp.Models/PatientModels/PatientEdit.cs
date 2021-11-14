@@ -24,5 +24,6 @@ namespace AutismAppointmentApp.Models.PatientModels
         [Display(Name = "Has Therapy: ")]
         public bool HasTherapy { get; set; }
         public string UserId { get; set; }
+        public string ImagePath { get; set; }
     }
 }

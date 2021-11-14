@@ -24,6 +24,7 @@
     {
         <div class="card text-white bg-primary mb-3 index-cards" style="max-width: 25rem;">
             <div class="card-header">Patient ID: @Html.DisplayFor(modelItem => item.PatientId)</div>
+            <img src="@Html.DisplayFor(modelItem => item.ImagePath)"/>
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName) </h5><br />
                 <p class="card-text">@Html.DisplayFor(modelItem => item.Gender)</p>

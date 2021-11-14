@@ -40,5 +40,6 @@ namespace AutismAppointmentApp.Models.PatientModels
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified Date: ")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+        public string ImagePath { get; set; }
     }
 }

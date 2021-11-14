@@ -13,7 +13,7 @@ namespace AutismAppointmentApp.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202111102020016_InitialMigration"; }
+            get { return "202111132127082_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source
