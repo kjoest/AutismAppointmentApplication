@@ -11,7 +11,7 @@ namespace AutismAppointmentApp.Services.TherapistServices
 {
     public class TherapistService : ITherapistService
     {
-        public bool CreateTherapist(TherapistCreate model)
+        public bool CreateTherapist(TherapistCreate model, string path)
         {
             var entity = new Therapist()
             {
@@ -20,7 +20,8 @@ namespace AutismAppointmentApp.Services.TherapistServices
                 LastName = model.LastName,
                 TherapySpecialist = model.TherapySpecialist,
                 IsCertified = model.IsCertified,
-                CreatedUtc = DateTimeOffset.Now
+                CreatedUtc = DateTimeOffset.Now,
+                ImagePath = path
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -57,7 +58,7 @@ namespace AutismAppointmentApp.Services.TherapistServices
             }
         }
 
-        public TherapistDetail GetTherapistById(int id, string userId)
+        public TherapistDetail GetTherapistById(int id, string path, string userId)
         {
             var guid = Guid.Parse(userId);
 
@@ -75,7 +76,8 @@ namespace AutismAppointmentApp.Services.TherapistServices
                     TherapySpecialist = entity.TherapySpecialist,
                     IsCertified = entity.IsCertified,
                     CreatedUtc = entity.CreatedUtc,
-                    ModifiedUtc = entity.ModifiedUtc
+                    ModifiedUtc = entity.ModifiedUtc,
+                    ImagePath = path
                 };
             }
         }

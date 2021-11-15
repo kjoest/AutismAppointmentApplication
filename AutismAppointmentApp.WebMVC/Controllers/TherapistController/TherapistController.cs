@@ -3,6 +3,7 @@ using AutismAppointmentApp.Services.TherapistServices;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,34 +33,45 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
         }
 
         [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(TherapistCreate model)
+        public ActionResult Create(TherapistCreate model, string path, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
             model.UserId = User.Identity.GetUserId();
 
-            if (_service.CreateTherapist(model))
+            if (_service.CreateTherapist(model, path))
             {
+                string rootedPath;
+                string fileName;
+
+                if(file != null)
+                {
+                    fileName = Path.GetFileName(file.FileName);
+                    path = "Content/img/" + fileName;
+
+                    rootedPath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                }
+
                 TempData["SaveResult"] = "The therapist was added successfully.";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "The therapist could not be added... Try again later.");
-
             return View("Index");
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, string path)
         {
-            var model = _service.GetTherapistById(id, User.Identity.GetUserId());
+            var model = _service.GetTherapistById(id, path, User.Identity.GetUserId());
             return View(model);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string path)
         {
-            var entity = _service.GetTherapistById(id, User.Identity.GetUserId());
+            var entity = _service.GetTherapistById(id, path, User.Identity.GetUserId());
             var model =
                 new TherapistEdit
                 {
@@ -99,9 +111,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string path)
         {
-            var model = _service.GetTherapistById(id, User.Identity.GetUserId());
+            var model = _service.GetTherapistById(id, path, User.Identity.GetUserId());
             return View(model);
         }
 

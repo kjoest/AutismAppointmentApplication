@@ -22,5 +22,6 @@ namespace AutismAppointmentApp.Models.TherapistModels
         [Display(Name = "Certified: ")]
         public bool IsCertified { get; set; }
         public string UserId { get; set; }
+        public string ImagePath { get; set; }
     }
 }
