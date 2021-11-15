@@ -35,6 +35,15 @@ hr {
     margin-left: 5rem;
 }
 
+.upload-file{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#upload-option{
+    opacity: 0.5;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

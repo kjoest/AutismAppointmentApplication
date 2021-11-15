@@ -22,23 +22,22 @@
 <div class="row row-cols-1 row-cols-md-2 g-4">
     @foreach (var item in Model)
     {
-        <div class="card text-white bg-primary mb-3 index-cards" style="max-width: 25rem;">
-            <div class="card-header">Patient ID: @Html.DisplayFor(modelItem => item.PatientId)</div>
-            <img src="@Html.DisplayFor(modelItem => item.ImagePath)"/>
-            <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName) </h5><br />
-                <p class="card-text">@Html.DisplayFor(modelItem => item.Gender)</p>
-                <p class="card-text">@Html.DisplayFor(modelItem => item.Address)</p>
-                <p class="card-text">Date of Birth: @Html.DisplayFor(modelItem => item.DateOfBirth)</p>
-                <p class="card-text">Therapy Needed: @Html.DisplayFor(modelItem => item.TherapyNeeded)</p>
-                <p class="card-text">Has Therapy: @Html.DisplayFor(modelItem => item.HasTherapy)</p>
-                <p class="card-text">Date Added: @Html.DisplayFor(modelItem => item.CreatedUtc)</p>
-                <p class="card-text">Date Modified: @Html.DisplayFor(modelItem => item.ModifiedUtc)</p>
-                <button class="buttons">@Html.ActionLink("Edit", "Edit", new { id = item.PatientId })</button>|
-                <button class="buttons">@Html.ActionLink("Details", "Details", new { id = item.PatientId })</button>|
-                <button class="buttons">@Html.ActionLink("Delete", "Delete", new { id = item.PatientId })</button>
-            </div>
+    <div class="card text-white bg-primary mb-3 index-cards" style="max-width: 25rem;">
+        <div class="card-header">Patient ID: @Html.DisplayFor(modelItem => item.PatientId)</div>
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName) </h5><br />
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Gender)</p>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Address)</p>
+            <p class="card-text">Date of Birth: @Html.DisplayFor(modelItem => item.DateOfBirth)</p>
+            <p class="card-text">Therapy Needed: @Html.DisplayFor(modelItem => item.TherapyNeeded)</p>
+            <p class="card-text">Has Therapy: @Html.DisplayFor(modelItem => item.HasTherapy)</p>
+            <p class="card-text">Date Added: @Html.DisplayFor(modelItem => item.CreatedUtc)</p>
+            <p class="card-text">Date Modified: @Html.DisplayFor(modelItem => item.ModifiedUtc)</p>
+            <button class="buttons">@Html.ActionLink("Edit", "Edit", new { id = item.PatientId })</button>|
+            <button class="buttons">@Html.ActionLink("Details", "Details", new { id = item.PatientId })</button>|
+            <button class="buttons">@Html.ActionLink("Delete", "Delete", new { id = item.PatientId })</button>
         </div>
+    </div>
     }
 </div>
 

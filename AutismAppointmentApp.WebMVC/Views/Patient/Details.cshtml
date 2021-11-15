@@ -4,85 +4,112 @@
     ViewBag.Title = "Patient Details";
 }
 
-<div>
-    <h4 class="patient-information">Patient Information</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PatientId)
-        </dt>
+<h4 class="patient-information">Patient Information</h4>
+<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.PatientId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapyNeeded)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TherapyNeeded)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HasTherapy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HasTherapy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Html.DisplayFor(model => model.ImagePath)" class="img-fluid rounded-start" alt="@Html.DisplayFor(model => model.FullName)">
+        </div>
+        <div class="col-md-8">
+            <div class="card-header">Patient ID: @Html.DisplayFor(model => model.PatientId)</div>
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
+                <p class="card-text">@Html.DisplayFor(model => model.Gender)</p>
+                <p class="card-text">@Html.DisplayFor(model => model.Address)</p>
+                <p class="card-text">Date of Birth: @Html.DisplayFor(model => model.DateOfBirth)</p>
+                <p class="card-text">Therapy Needed: @Html.DisplayFor(model => model.TherapyNeeded)</p>
+                <p class="card-text">Has Therapy: @Html.DisplayFor(model => model.HasTherapy)</p>
+                <p class="card-text">Created Date: @Html.DisplayFor(model => model.CreatedUtc)</p>
+                <p class="card-text">Modified Date: @Html.DisplayFor(model => model.ModifiedUtc)</p>
+                <button id="buttons">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId })
+                </button> |
+                <button id="buttons">
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {id = Model.PatientId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatientId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapyNeeded)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TherapyNeeded)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HasTherapy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HasTherapy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
