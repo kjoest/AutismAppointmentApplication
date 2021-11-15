@@ -4,61 +4,86 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-    <h4 class="therapist-detail">Therapist Information</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapistId)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TherapistId)
-        </dd>
+<h4 class="therapist-detail">Therapist Information</h4>
+<hr />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapySpecialist)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TherapySpecialist)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsCertified)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsCertified)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="@Html.DisplayFor(model => model.FullName)">
+        </div>
+        <div class="col-md-8">
+            <div class="card-header">Therapist ID: @Html.DisplayFor(model => model.TherapistId)</div>
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
+                <p class="card-text"><b>Specialization:</b> @Html.DisplayFor(model => model.TherapySpecialist)</p>
+                <p class="card-text"><b>Certified: </b> @Html.DisplayFor(model => model.IsCertified)</p>
+                <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
+                <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedUtc)</p>
+                <button id="buttons">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId })
+                </button>|
+                <button id="buttons">
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapistId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TherapistId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapySpecialist)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TherapySpecialist)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsCertified)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsCertified)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

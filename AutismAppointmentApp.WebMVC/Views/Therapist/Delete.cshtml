@@ -8,7 +8,35 @@
 <div>
     <h4>Therapist Information</h4>
     <hr />
-    <dl class="dl-horizontal">
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="@Html.DisplayFor(model => model.FullName)">
+            </div>
+            <div class="col-md-8">
+                <div class="card-header">Therapist ID: @Html.DisplayFor(model => model.TherapistId)</div>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
+                    <p class="card-text"><b>Specialization:</b> @Html.DisplayFor(model => model.TherapySpecialist)</p>
+                    <p class="card-text"><b>Certified: </b> @Html.DisplayFor(model => model.IsCertified)</p>
+                    <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
+                    <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedUtc)</p>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.TherapistId)
         </dt>
@@ -75,7 +103,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -83,4 +112,4 @@
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
-</div>
+</div>*@
