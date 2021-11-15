@@ -4,69 +4,93 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-    <h4 class="appointment-detail">Details of Appointment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AppointmentId)
-        </dt>
+<h4 class="appointment-detail">Details of Appointment</h4>
+<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.AppointmentId)
-        </dd>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-header">Patient ID: @Html.DisplayFor(model => model.AppointmentId)</div>
+            <div class="card-body">
+                <h5 class="card-title"><b>Appointment Date:</b> @Html.DisplayFor(model => model.DateOfAppointment)</h5>
+                <br />
+                <p class="card-text"><b>Appointment Details:</b> @Html.DisplayFor(model => model.DetailOfAppointment)</p>
+                <p class="card-text"><b>Therapist ID:</b> @Html.DisplayFor(model => model.TherapistId)</p>
+                <p class="card-text"><b>Patient ID:</b> @Html.DisplayFor(model => model.PatientId)</p>
+                <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
+                <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedDate)</p>
+                <button id="buttons">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentId })
+                </button> |
+                <button id="buttons">
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfAppointment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfAppointment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DetailOfAppointment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DetailOfAppointment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapistId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TherapistId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PatientId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatientId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
-
-    </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppointmentId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfAppointment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOfAppointment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DetailOfAppointment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DetailOfAppointment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapistId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TherapistId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatientId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

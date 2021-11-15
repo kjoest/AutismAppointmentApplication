@@ -5,111 +5,111 @@
 }
 
 <h3 class="therapist-delete">Are you sure you want to delete this Therapist?</h3>
-<div>
-    <h4>Therapist Information</h4>
-    <hr />
+<h4>Therapist Information</h4>
+<hr />
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="@Html.DisplayFor(model => model.ImagePath)" class="img-fluid rounded-start" alt="@Html.DisplayFor(model => model.FullName)">
-            </div>
-            <div class="col-md-8">
-                <div class="card-header">Therapist ID: @Html.DisplayFor(model => model.TherapistId)</div>
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
-                    <p class="card-text"><b>Specialization:</b> @Html.DisplayFor(model => model.TherapySpecialist)</p>
-                    <p class="card-text"><b>Certified: </b> @Html.DisplayFor(model => model.IsCertified)</p>
-                    <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
-                    <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedUtc)</p>
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Html.DisplayFor(model => model.ImagePath)" class="img-fluid rounded-start" alt="@Html.DisplayFor(model => model.FullName)">
+        </div>
+        <div class="col-md-8">
+            <div class="card-header">Therapist ID: @Html.DisplayFor(model => model.TherapistId)</div>
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
+                <br />
+                <p class="card-text"><b>Specialization:</b> @Html.DisplayFor(model => model.TherapySpecialist)</p>
+                <p class="card-text"><b>Certified: </b> @Html.DisplayFor(model => model.IsCertified)</p>
+                <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
+                <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedUtc)</p>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
-                            @Html.ActionLink("Back to List", "Index")
-                        </div>
-                    }
-                </div>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                }
             </div>
         </div>
     </div>
+</div>
 
-    @*<dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapistId)
-        </dt>
+@*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapistId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TherapistId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TherapistId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapySpecialist)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapySpecialist)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TherapySpecialist)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TherapySpecialist)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsCertified)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsCertified)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsCertified)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IsCertified)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>*@
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@

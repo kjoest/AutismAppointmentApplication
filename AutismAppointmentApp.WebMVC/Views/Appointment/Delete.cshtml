@@ -5,74 +5,101 @@
 }
 
 <h3 class="appointment-delete">Are you sure you want to cancel this appointment?</h3>
-<div>
-    <h4>Appointment Details</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AppointmentId)
-        </dt>
+<h4>Appointment Details</h4>
+<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.AppointmentId)
-        </dd>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-header">Patient ID: @Html.DisplayFor(model => model.AppointmentId)</div>
+            <div class="card-body">
+                <h5 class="card-title"><b>Appointment Date:</b> @Html.DisplayFor(model => model.DateOfAppointment)</h5>
+                <br />
+                <p class="card-text"><b>Appointment Details:</b> @Html.DisplayFor(model => model.DetailOfAppointment)</p>
+                <p class="card-text"><b>Therapist ID:</b> @Html.DisplayFor(model => model.TherapistId)</p>
+                <p class="card-text"><b>Patient ID:</b> @Html.DisplayFor(model => model.PatientId)</p>
+                <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
+                <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedDate)</p>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfAppointment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfAppointment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DetailOfAppointment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DetailOfAppointment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TherapistId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TherapistId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PatientId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatientId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
-            @Html.ActionLink("Back to List", "Index")
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                }
+            </div>
         </div>
-    }
+    </div>
 </div>
+
+@*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppointmentId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfAppointment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateOfAppointment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DetailOfAppointment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DetailOfAppointment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TherapistId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TherapistId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatientId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default btn btn-primary btn-sm" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@

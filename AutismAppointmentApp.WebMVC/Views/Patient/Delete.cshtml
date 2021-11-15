@@ -17,13 +17,14 @@
             <div class="card-header">Patient ID: @Html.DisplayFor(model => model.PatientId)</div>
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
+                <br />
                 <p class="card-text">@Html.DisplayFor(model => model.Gender)</p>
                 <p class="card-text">@Html.DisplayFor(model => model.Address)</p>
-                <p class="card-text">Date of Birth: @Html.DisplayFor(model => model.DateOfBirth)</p>
-                <p class="card-text">Therapy Needed: @Html.DisplayFor(model => model.TherapyNeeded)</p>
-                <p class="card-text">Has Therapy: @Html.DisplayFor(model => model.HasTherapy)</p>
-                <p class="card-text">Created Date: @Html.DisplayFor(model => model.CreatedUtc)</p>
-                <p class="card-text">Modified Date: @Html.DisplayFor(model => model.ModifiedUtc)</p>
+                <p class="card-text"><b>Date of Birth:</b> @Html.DisplayFor(model => model.DateOfBirth)</p>
+                <p class="card-text"><b>Therapy Needed:</b> @Html.DisplayFor(model => model.TherapyNeeded)</p>
+                <p class="card-text"><b>Has Therapy:</b> @Html.DisplayFor(model => model.HasTherapy)</p>
+                <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
+                <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedUtc)</p>
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()

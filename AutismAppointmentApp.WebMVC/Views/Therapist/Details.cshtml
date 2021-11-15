@@ -17,13 +17,14 @@
             <div class="card-header">Therapist ID: @Html.DisplayFor(model => model.TherapistId)</div>
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(model => model.FullName)</h5>
+                <br />
                 <p class="card-text"><b>Specialization:</b> @Html.DisplayFor(model => model.TherapySpecialist)</p>
                 <p class="card-text"><b>Certified: </b> @Html.DisplayFor(model => model.IsCertified)</p>
                 <p class="card-text"><b>Created Date:</b> @Html.DisplayFor(model => model.CreatedUtc)</p>
                 <p class="card-text"><b>Modified Date:</b> @Html.DisplayFor(model => model.ModifiedUtc)</p>
                 <button id="buttons">
                     @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId })
-                </button>|
+                </button> |
                 <button id="buttons">
                     @Html.ActionLink("Back to List", "Index")
                 </button>
