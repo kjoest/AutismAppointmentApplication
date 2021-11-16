@@ -65,7 +65,7 @@ namespace AutismAppointmentApp.Services.PatientServices
             }
         }
 
-        public PatientDetail GetPatientById(int id, string path, string userId)
+        public PatientDetail GetPatientById(int id, string userId)
         {
             var guid = Guid.Parse(userId);
 
@@ -87,7 +87,7 @@ namespace AutismAppointmentApp.Services.PatientServices
                     HasTherapy = entity.HasTherapy,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
-                    ImagePath = path,
+                    ImagePath = entity.ImagePath,
                 };
             }
         }

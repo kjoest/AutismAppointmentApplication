@@ -58,7 +58,7 @@ namespace AutismAppointmentApp.Services.TherapistServices
             }
         }
 
-        public TherapistDetail GetTherapistById(int id, string path, string userId)
+        public TherapistDetail GetTherapistById(int id, string userId)
         {
             var guid = Guid.Parse(userId);
 
@@ -77,7 +77,7 @@ namespace AutismAppointmentApp.Services.TherapistServices
                     IsCertified = entity.IsCertified,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
-                    ImagePath = path
+                    ImagePath = entity.ImagePath
                 };
             }
         }

@@ -8,7 +8,7 @@ namespace AutismAppointmentApp.Services.PatientServices
         bool CreatePatient(PatientCreate model, string path);
         bool DeletePatient(int id, string userId);
         IEnumerable<PatientListDetail> GetAllPatients(string userId);
-        PatientDetail GetPatientById(int id, string userId, string path);
+        PatientDetail GetPatientById(int id, string userId);
         bool UpdatePatient(PatientEdit model);
     }
 }

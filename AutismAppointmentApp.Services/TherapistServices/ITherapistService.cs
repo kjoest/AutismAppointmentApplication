@@ -8,7 +8,7 @@ namespace AutismAppointmentApp.Services.TherapistServices
         bool CreateTherapist(TherapistCreate model, string path);
         bool DeleteTherapist(int id, string userId);
         IEnumerable<TherapistListDetail> GetAllTherapists(string userId);
-        TherapistDetail GetTherapistById(int id, string path, string userId);
+        TherapistDetail GetTherapistById(int id, string userId);
         bool UpdateTherapist(TherapistEdit model);
     }
 }

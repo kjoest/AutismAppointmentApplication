@@ -38,26 +38,28 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PatientCreate model, string path, HttpPostedFileBase file)
-         {
+        public ActionResult Create(PatientCreate model, HttpPostedFileBase file)
+        {
             if (!ModelState.IsValid)
                 return View(model);
 
             model.UserId = User.Identity.GetUserId();
 
+            string rootedPath;
+            string path = " ";
+            string fileName;
+
+            if (file != null)
+            {
+                fileName = Path.GetFileName(file.FileName);
+                path = "Content/img/" + fileName;
+
+                rootedPath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
+                file.SaveAs(rootedPath);
+            }
+
             if (_service.CreatePatient(model, path))
             {
-                string rootedPath;
-                string fileName;
-
-                if(file != null)
-                {
-                    fileName = Path.GetFileName(file.FileName);
-                    path = "Content/img/" + fileName;
-
-                    rootedPath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
-                    file.SaveAs(rootedPath);
-                }
 
                 TempData["SaveResult"] = "The patient was added successfully.";
                 return RedirectToAction("Index");
@@ -68,9 +70,9 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
         }
 
         // GET: Patient/{id}
-        public ActionResult Details(int id, string path)
+        public ActionResult Details(int id)
         {
-            var model = _service.GetPatientById(id, path, User.Identity.GetUserId());
+            var model = _service.GetPatientById(id, User.Identity.GetUserId());
 
             if (model == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -82,7 +84,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
         [ActionName("Delete")]
         public ActionResult Delete(int id, string path)
         {
-            var model = _service.GetPatientById(id, path, User.Identity.GetUserId());
+            var model = _service.GetPatientById(id, User.Identity.GetUserId());
             return View(model);
         }
 
@@ -100,7 +102,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.PatientController
         //GET: Patient/Edit/{id}
         public ActionResult Edit(int id, string path)
         {
-            var entity = _service.GetPatientById(id, path, User.Identity.GetUserId());
+            var entity = _service.GetPatientById(id, User.Identity.GetUserId());
             var model =
                 new PatientEdit
                 {
