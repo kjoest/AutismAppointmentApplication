@@ -47,15 +47,17 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="upload-file">
+        <form action="Document/Create" method="post" enctype="multipart/form-data">
+            <p id="upload-option">(Optional)</p>
+            <label class="camera-file-upload">
+                <input type="file" name="file" id="file" />
+            </label>
+        </form>
+    </div>
 
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10 therapist-create-button">
-            <form action="Document/Create" method="post" enctype="multipart/form-data">
-                <p id="upload-option">(Optional)</p>
-                <label class="camera-file-upload">
-                    <input type="file" name="file" id="file" />
-                </label>
-            </form>
             <input type="submit" value="Create" class="btn btn-default btn btn-primary btn-sm" />
         </div>
     </div>

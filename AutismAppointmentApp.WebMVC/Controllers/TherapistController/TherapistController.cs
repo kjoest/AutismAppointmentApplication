@@ -52,7 +52,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             if (file != null)
             {
                 fileName = Path.GetFileName(file.FileName);
-                path = "Content/img/" + fileName;
+                path = "/Content/img/" + fileName;
 
                 rootedPath = Path.Combine(Server.MapPath("~/Content/img"), fileName);
                 file.SaveAs(rootedPath);
