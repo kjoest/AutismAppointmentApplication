@@ -27,11 +27,14 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateAntiForgeryToken]
@@ -71,6 +74,8 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var entity = _service.GetTherapistById(id, User.Identity.GetUserId());
@@ -87,6 +92,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, TherapistEdit model)
@@ -112,6 +118,8 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -119,6 +127,7 @@ namespace AutismAppointmentApp.WebMVC.Controllers.TherapistController
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
