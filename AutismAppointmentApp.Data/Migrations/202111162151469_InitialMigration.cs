@@ -57,6 +57,7 @@ namespace AutismAppointmentApp.Data.Migrations
                         IsCertified = c.Boolean(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        ImagePath = c.String(),
                     })
                 .PrimaryKey(t => t.TherapistId);
             
