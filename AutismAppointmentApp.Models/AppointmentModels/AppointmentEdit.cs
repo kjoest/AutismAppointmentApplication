@@ -13,6 +13,7 @@ namespace AutismAppointmentApp.Models.AppointmentModels
         [Display(Name = "Appointment ID: ")]
         public int AppointmentId { get; set; }
         [Display(Name = "Appointment Date: ")]
+        [DataType(DataType.Date)]
         public DateTime? DateOfAppointment { get; set; }
         [Display(Name = "Appointment Details: ")]
         public string DetailOfAppointment { get; set; }

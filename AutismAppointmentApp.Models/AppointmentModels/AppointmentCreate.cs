@@ -12,6 +12,7 @@ namespace AutismAppointmentApp.Models.AppointmentModels
     {
         [Required]
         [Display(Name = "Appointment Date: ")]
+        [DataType(DataType.Date)]
         public DateTime? DateOfAppointment { get; set; }
         [Required]
         [Display(Name = "Appointment Details: ")]

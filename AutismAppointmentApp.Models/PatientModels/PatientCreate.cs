@@ -27,6 +27,7 @@ namespace AutismAppointmentApp.Models.PatientModels
         public string Address { get; set; }
         [Required]
         [Display(Name = "Date of Birth: ")]
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
         [Required]
         [DefaultValue(false)]
