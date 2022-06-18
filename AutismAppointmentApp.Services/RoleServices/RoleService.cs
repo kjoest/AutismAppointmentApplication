@@ -26,8 +26,8 @@ namespace AutismAppointmentApp.Services.RoleServices
         {
             ApplicationDbContext ctx = new ApplicationDbContext();
             UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(ctx));
-
-            var myUser = ctx.Users.SingleOrDefault(u => u.Email == "kyle@1234.com");
+                                                                    //Password = Admin123!
+            var myUser = ctx.Users.SingleOrDefault(u => u.Email == "admin@autism.com");
             if (myUser != null)
             {
                 var adminRes = userManager.AddToRole(myUser.Id, "Admin");
