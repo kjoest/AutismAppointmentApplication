@@ -32,7 +32,8 @@
                     </li>
                     <div class="dropdown-divider"></div>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Login", "Account")">Log in</a>
+                        @*<a class="nav-link" href="@Url.Action("Login", "Account")">Log in</a>*@
+                        @Html.Partial("_LoginPartial")
                     </li>
                 </ul>
             </div>
@@ -45,7 +46,7 @@
                 <li>@Html.ActionLink("About", "About", "Home")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
             </ul>*@
-        @Html.Partial("_LoginPartial")
+        @*@Html.Partial("_LoginPartial")*@
     </div>
     <div class="container body-content">
         @RenderBody()

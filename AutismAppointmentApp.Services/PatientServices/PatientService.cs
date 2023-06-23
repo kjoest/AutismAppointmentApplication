@@ -58,7 +58,8 @@ namespace AutismAppointmentApp.Services.PatientServices
                                 DateOfBirth = s.DateOfBirth,
                                 HasTherapy = s.HasTherapy,
                                 CreatedUtc = s.CreatedUtc,
-                                ModifiedUtc = s.ModifiedUtc
+                                ModifiedUtc = s.ModifiedUtc,
+                                ImagePath = s.ImagePath
                             });
 
                 return query.ToArray();
